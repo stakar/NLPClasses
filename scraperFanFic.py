@@ -7,8 +7,6 @@
 import mechanicalsoup
 import time
 import json
-# import nltk
-# import pickle
 from timeit import default_timer as timer
 import re
 from unidecode import unidecode
@@ -191,4 +189,7 @@ if __name__ == '__main__':
             story = scrap.download_list(ran_giv=len(scrap.linksToDownload))
         else :
             story = scrap.download_list(ran_giv=int(x))
+    
+    story = [[p[n][0] for n in range(len(p)) if len(p[n]) == 2] for p in story]
+    story = [r for t in story for r in t]
     
